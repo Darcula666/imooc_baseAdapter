@@ -34,6 +34,10 @@ public class ViewHolder {
         }
     }
 
+    public int getPosition() {
+        return mPosition;
+    }
+
     public View getConvertView() {
         return mConvertView;
     }

@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import net.gfdz.com.imooc_baseadapter.R;
-
 import java.util.List;
 
 /**
@@ -17,10 +15,12 @@ public  abstract class CommonAdapter<T> extends BaseAdapter {
     protected Context context;
     protected List<T> datas;
     protected LayoutInflater inflater;
+    private int layoutId;
 
-    public CommonAdapter(Context context, List<T> datas) {
+    public CommonAdapter(Context context, List<T> datas,int layoutId) {
         this.context = context;
         this.datas = datas;
+        this.layoutId=layoutId;
         inflater=LayoutInflater.from(context);
     }
 
@@ -41,7 +41,7 @@ public  abstract class CommonAdapter<T> extends BaseAdapter {
 
     @Override
     public  View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = ViewHolder.get(context,convertView,parent, R.layout.item_listview,position);
+        ViewHolder holder = ViewHolder.get(context,convertView,parent, layoutId,position);
 
     conver(holder,getItem(position));
 
